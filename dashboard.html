@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Astra Grid — Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body class="dashboard-body">
+    <aside class="sidebar">
+      <a class="brand side-brand" href="index.html"><span class="brand-mark">✦</span>ASTRA<span>GRID</span></a>
+      <div class="site-switch"><span class="building-icon">▦</span><div><small>ACTIVE SITE</small><b>Northstar Campus</b></div><span>⌄</span></div>
+      <nav class="side-nav"><a class="active" href="#overview"><span>⌂</span> Overview</a><a href="#consumption"><span>⌁</span> Consumption</a><a href="#insights"><span>✦</span> AI Insights <i>3</i></a><a href="#equipment"><span>▦</span> Equipment</a><a href="#reports"><span>▤</span> Reports</a></nav>
+      <div class="sidebar-footer"><a href="#settings"><span>⚙</span> Settings</a><a href="index.html"><span>←</span> Back to website</a></div>
+    </aside>
+    <main class="dash-main" id="overview">
+      <header class="dash-header"><div><p class="eyebrow"><i></i> TUESDAY, APRIL 16</p><h1>Good morning, <em id="display-name">Alex.</em></h1></div><div class="profile"><button class="bell" aria-label="Notifications">♢<b>3</b></button><button class="profile-button" id="profile-button"><span id="profile-initials">AM</span><b id="profile-name">Alex Morgan</b><i>⌄</i></button></div></header>
+      <section class="dashboard-content">
+        <div class="dash-title"><div><h2>Your energy, right now.</h2><p>Here’s what’s happening across Northstar Campus.</p></div><button class="date-button">This month <span>⌄</span></button></div>
+        <div class="metric-grid"><article class="metric-card hero-metric"><div class="metric-label"><span class="live-dot"></span> LIVE DEMAND</div><strong id="demand">42.8 <small>kW</small></strong><p><b class="down">↓ 8.4%</b> vs. typical Tuesday</p><div class="energy-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article><article class="metric-card"><div class="metric-label">EST. COST TODAY <span>↗</span></div><strong>₹286<span>.40</span></strong><p><b class="down">↓ ₹34.10</b> below budget</p><div class="mini-stat"><span>Daily budget</span><b>₹320</b><i><em></em></i></div></article><article class="metric-card"><div class="metric-label">CARBON INTENSITY <span>◎</span></div><strong>218 <small>gCO₂/kWh</small></strong><p><b class="down">↓ 12%</b> cleaner than yesterday</p><div class="carbon-chart"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article></div>
+        <div class="dashboard-split" id="insights"><section class="ai-card"><div class="ai-heading"><div><span class="ai-symbol">✦</span><small>ASTRA AI</small><h3>Three ways to save today.</h3></div><a href="#">View all insights →</a></div><article class="ai-action"><span class="action-mark orange-bg">↘</span><div><small>HIGH IMPACT · 96% CONFIDENCE</small><h4>Pre-cool Building A before 2:00 PM</h4><p>Grid prices will rise 34% this afternoon. We can shift cooling now while demand is low.</p><b>Est. savings <em>₹84.20</em></b></div><button>Review <span>→</span></button></article><div class="ai-small-actions"><div><span class="action-mark lime-bg">☼</span><p><b>Solar generation is optimal</b><small>12% above forecast</small></p></div><div><span class="action-mark cream-bg">⌁</span><p><b>Equipment anomaly detected</b><small>AHU-04 · Review needed</small></p></div></div></section><section class="usage-card" id="consumption"><div class="usage-heading"><div><small>ENERGY USE</small><h3>Consumption trend</h3></div><div class="legend"><i></i> Actual <i></i> Forecast</div></div><div class="chart-labels"><span>60 kW</span><span>40 kW</span><span>20 kW</span><span>0 kW</span></div><div class="line-chart"><svg viewBox="0 0 500 200" preserveAspectRatio="none" aria-label="Energy use chart"><path class="forecast" d="M0 147 C38 126 62 145 92 112 S143 132 170 105 S218 126 244 85 S287 105 314 80 S355 95 388 45 S440 72 500 38"/><path class="actual" d="M0 158 C31 137 60 159 91 125 S142 146 172 116 S214 141 243 102 S285 118 317 91 S363 110 389 61 S437 82 500 49"/></svg></div><div class="chart-times"><span>12 AM</span><span>6 AM</span><span>12 PM</span><span>6 PM</span><span>Now</span></div></section></div>
+      </section>
+    </main>
+    <dialog id="profile-dialog"><form method="dialog"><button class="close-dialog" aria-label="Close">×</button><p class="eyebrow">PROFILE SETTINGS</p><h2>What should we call you?</h2><label for="name-input">Your name</label><input id="name-input" maxlength="25" value="Alex" placeholder="Enter your name" /><button class="save-name" value="save">Save name <span>→</span></button></form></dialog>
+    <script src="dashboard.js"></script>
+  </body>
+</html>
