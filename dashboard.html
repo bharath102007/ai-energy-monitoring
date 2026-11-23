@@ -9,21 +9,1226 @@
     <link rel="stylesheet" href="dashboard.css" />
   </head>
   <body class="dashboard-body">
+    <!-- Sidebar Navigation -->
     <aside class="sidebar">
       <a class="brand side-brand" href="index.html"><span class="brand-mark">✦</span>ASTRA<span>GRID</span></a>
-      <div class="site-switch"><span class="building-icon">▦</span><div><small>ACTIVE SITE</small><b>Northstar Campus</b></div><span>⌄</span></div>
-      <nav class="side-nav"><a class="active" href="#overview"><span>⌂</span> Overview</a><a href="#consumption"><span>⌁</span> Consumption</a><a href="#insights"><span>✦</span> AI Insights <i>3</i></a><a href="#equipment"><span>▦</span> Equipment</a><a href="#reports"><span>▤</span> Reports</a></nav>
-      <div class="sidebar-footer"><a href="#settings"><span>⚙</span> Settings</a><a href="index.html"><span>←</span> Back to website</a></div>
+      
+      <div class="site-switch" id="site-switch-trigger" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
+        <span class="building-icon">▦</span>
+        <div><small>ACTIVE SITE</small><b id="active-site-display">Northstar Campus</b></div>
+        <span class="dropdown-chevron">⌄</span>
+        
+        <!-- Site Switcher Dropdown Menu -->
+        <div class="site-dropdown" id="site-dropdown">
+          <div class="site-option active" data-site="Northstar Campus" data-demand="42.8" data-cost="₹286.40" data-carbon="218">
+            <span class="site-status-dot"></span>
+            <div><b>Northstar Campus</b><small>HQ & Innovation Labs · 42.8 kW</small></div>
+            <span class="site-check">✓</span>
+          </div>
+          <div class="site-option" data-site="South Bay Hub" data-demand="28.4" data-cost="₹192.10" data-carbon="184">
+            <span class="site-status-dot"></span>
+            <div><b>South Bay Hub</b><small>Production Facility · 28.4 kW</small></div>
+            <span class="site-check">✓</span>
+          </div>
+          <div class="site-option" data-site="West River Facility" data-demand="61.2" data-cost="₹415.80" data-carbon="245">
+            <span class="site-status-dot"></span>
+            <div><b>West River Facility</b><small>Logistics & Cold Storage · 61.2 kW</small></div>
+            <span class="site-check">✓</span>
+          </div>
+        </div>
+      </div>
+
+      <nav class="side-nav" id="side-nav">
+        <a class="active" href="#overview" data-tab="overview"><span>⌂</span> Overview</a>
+        <a href="#consumption" data-tab="consumption"><span>⌁</span> Consumption</a>
+        <a href="#insights" data-tab="insights"><span>✦</span> AI Insights <i id="insights-count-badge">3</i></a>
+        <a href="#equipment" data-tab="equipment"><span>▦</span> Equipment</a>
+        <a href="#reports" data-tab="reports"><span>▤</span> Reports</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="#settings" data-tab="settings" id="nav-settings"><span>⚙</span> Settings</a>
+        <a href="index.html"><span>←</span> Back to website</a>
+      </div>
     </aside>
-    <main class="dash-main" id="overview">
-      <header class="dash-header"><div><p class="eyebrow"><i></i> TUESDAY, APRIL 16</p><h1>Good morning, <em id="display-name">Alex.</em></h1></div><div class="profile"><button class="bell" aria-label="Notifications">♢<b>3</b></button><button class="profile-button" id="profile-button"><span id="profile-initials">AM</span><b id="profile-name">Alex Morgan</b><i>⌄</i></button></div></header>
-      <section class="dashboard-content">
-        <div class="dash-title"><div><h2>Your energy, right now.</h2><p>Here’s what’s happening across Northstar Campus.</p></div><button class="date-button">This month <span>⌄</span></button></div>
-        <div class="metric-grid"><article class="metric-card hero-metric"><div class="metric-label"><span class="live-dot"></span> LIVE DEMAND</div><strong id="demand">42.8 <small>kW</small></strong><p><b class="down">↓ 8.4%</b> vs. typical Tuesday</p><div class="energy-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article><article class="metric-card"><div class="metric-label">EST. COST TODAY <span>↗</span></div><strong>₹286<span>.40</span></strong><p><b class="down">↓ ₹34.10</b> below budget</p><div class="mini-stat"><span>Daily budget</span><b>₹320</b><i><em></em></i></div></article><article class="metric-card"><div class="metric-label">CARBON INTENSITY <span>◎</span></div><strong>218 <small>gCO₂/kWh</small></strong><p><b class="down">↓ 12%</b> cleaner than yesterday</p><div class="carbon-chart"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article></div>
-        <div class="dashboard-split" id="insights"><section class="ai-card"><div class="ai-heading"><div><span class="ai-symbol">✦</span><small>ASTRA AI</small><h3>Three ways to save today.</h3></div><a href="#">View all insights →</a></div><article class="ai-action"><span class="action-mark orange-bg">↘</span><div><small>HIGH IMPACT · 96% CONFIDENCE</small><h4>Pre-cool Building A before 2:00 PM</h4><p>Grid prices will rise 34% this afternoon. We can shift cooling now while demand is low.</p><b>Est. savings <em>₹84.20</em></b></div><button>Review <span>→</span></button></article><div class="ai-small-actions"><div><span class="action-mark lime-bg">☼</span><p><b>Solar generation is optimal</b><small>12% above forecast</small></p></div><div><span class="action-mark cream-bg">⌁</span><p><b>Equipment anomaly detected</b><small>AHU-04 · Review needed</small></p></div></div></section><section class="usage-card" id="consumption"><div class="usage-heading"><div><small>ENERGY USE</small><h3>Consumption trend</h3></div><div class="legend"><i></i> Actual <i></i> Forecast</div></div><div class="chart-labels"><span>60 kW</span><span>40 kW</span><span>20 kW</span><span>0 kW</span></div><div class="line-chart"><svg viewBox="0 0 500 200" preserveAspectRatio="none" aria-label="Energy use chart"><path class="forecast" d="M0 147 C38 126 62 145 92 112 S143 132 170 105 S218 126 244 85 S287 105 314 80 S355 95 388 45 S440 72 500 38"/><path class="actual" d="M0 158 C31 137 60 159 91 125 S142 146 172 116 S214 141 243 102 S285 118 317 91 S363 110 389 61 S437 82 500 49"/></svg></div><div class="chart-times"><span>12 AM</span><span>6 AM</span><span>12 PM</span><span>6 PM</span><span>Now</span></div></section></div>
+
+    <!-- Main Content Shell -->
+    <main class="dash-main">
+      <header class="dash-header">
+        <div>
+          <p class="eyebrow" id="header-eyebrow"><i></i> TUESDAY, APRIL 16</p>
+          <h1 id="header-greeting">Good morning, <em id="display-name">Alex.</em></h1>
+        </div>
+        <div class="profile">
+          <div class="notif-wrapper">
+            <button class="bell" id="bell-btn" aria-label="Notifications" title="Notifications">
+              ♢<b id="bell-badge">3</b>
+            </button>
+            <!-- Notifications Dropdown -->
+            <div class="notif-dropdown" id="notif-dropdown">
+              <div class="notif-header">
+                <div><b>Notifications</b><small id="unread-count">3 unread</small></div>
+                <button id="mark-all-read" class="text-btn">Mark read</button>
+              </div>
+              <div class="notif-list">
+                <div class="notif-item unread" data-id="1">
+                  <span class="notif-dot orange-bg"></span>
+                  <div>
+                    <p><b>Peak tariff window at 2:00 PM</b> · Pre-cooling recommendation active.</p>
+                    <small>15 mins ago · AI Recommendation</small>
+                  </div>
+                </div>
+                <div class="notif-item unread" data-id="2">
+                  <span class="notif-dot orange-bg"></span>
+                  <div>
+                    <p><b>AHU-04 vibration anomaly</b> · Motor bearing telemetry above threshold.</p>
+                    <small>42 mins ago · Equipment Alert</small>
+                  </div>
+                </div>
+                <div class="notif-item unread" data-id="3">
+                  <span class="notif-dot lime-bg"></span>
+                  <div>
+                    <p><b>Solar array generation peak</b> · 12% above daily forecasted output.</p>
+                    <small>2 hours ago · Renewable Telemetry</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <button class="profile-button" id="profile-button">
+            <span id="profile-initials">AM</span>
+            <b id="profile-name">Alex Morgan</b>
+            <i>⌄</i>
+          </button>
+        </div>
+      </header>
+
+      <!-- ======================================================== -->
+      <!-- TAB 1: OVERVIEW -->
+      <!-- ======================================================== -->
+      <section class="tab-view active" id="tab-overview" data-tab="overview">
+        <div class="dash-title">
+          <div>
+            <h2>Your energy, right now.</h2>
+            <p>Here’s what’s happening across <span class="site-label-current">Northstar Campus</span>.</p>
+          </div>
+          <div class="dropdown-wrap">
+            <button class="date-button" id="time-filter-btn">This month <span>⌄</span></button>
+            <div class="filter-dropdown" id="filter-dropdown">
+              <button class="filter-option" data-range="today">Today</button>
+              <button class="filter-option" data-range="week">This week</button>
+              <button class="filter-option active" data-range="month">This month</button>
+              <button class="filter-option" data-range="year">This year</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="metric-grid">
+          <article class="metric-card hero-metric">
+            <div class="metric-label"><span class="live-dot"></span> LIVE DEMAND</div>
+            <strong id="demand">42.8 <small>kW</small></strong>
+            <p><b class="down">↓ 8.4%</b> vs. typical Tuesday</p>
+            <div class="energy-bars" id="live-energy-bars">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+          </article>
+          
+          <article class="metric-card">
+            <div class="metric-label">EST. COST TODAY <span>↗</span></div>
+            <strong id="cost-today">₹286<span>.40</span></strong>
+            <p><b class="down">↓ ₹34.10</b> below budget</p>
+            <div class="mini-stat">
+              <span>Daily budget</span><b>₹320</b>
+              <i><em style="width: 82%;"></em></i>
+            </div>
+          </article>
+          
+          <article class="metric-card">
+            <div class="metric-label">CARBON INTENSITY <span>◎</span></div>
+            <strong id="carbon-val">218 <small>gCO₂/kWh</small></strong>
+            <p><b class="down">↓ 12%</b> cleaner than yesterday</p>
+            <div class="carbon-chart">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+          </article>
+        </div>
+
+        <div class="dashboard-split" id="overview-split">
+          <section class="ai-card">
+            <div class="ai-heading">
+              <div>
+                <span class="ai-symbol">✦</span><small>ASTRA AI</small>
+                <h3>Three ways to save today.</h3>
+              </div>
+              <a href="#insights" class="tab-link-btn" data-target="insights">View all insights →</a>
+            </div>
+            
+            <article class="ai-action" id="hero-ai-action">
+              <span class="action-mark orange-bg">↘</span>
+              <div>
+                <small>HIGH IMPACT · 96% CONFIDENCE</small>
+                <h4>Pre-cool Building A before 2:00 PM</h4>
+                <p>Grid prices will rise 34% this afternoon. We can shift cooling now while demand is low.</p>
+                <b>Est. savings <em>₹84.20</em></b>
+              </div>
+              <button class="review-trigger-btn" id="hero-review-btn">Review <span>→</span></button>
+            </article>
+
+            <div class="ai-small-actions">
+              <div class="clickable-action" data-target="insights">
+                <span class="action-mark lime-bg">☼</span>
+                <p><b>Solar generation is optimal</b><small>12% above forecast</small></p>
+              </div>
+              <div class="clickable-action" data-target="equipment">
+                <span class="action-mark cream-bg">⌁</span>
+                <p><b>Equipment anomaly detected</b><small>AHU-04 · Review needed</small></p>
+              </div>
+            </div>
+          </section>
+
+          <section class="usage-card">
+            <div class="usage-heading">
+              <div>
+                <small>ENERGY USE</small>
+                <h3>Consumption trend</h3>
+              </div>
+              <div class="legend"><i></i> Actual <i></i> Forecast</div>
+            </div>
+            <div class="chart-labels">
+              <span>60 kW</span>
+              <span>40 kW</span>
+              <span>20 kW</span>
+              <span>0 kW</span>
+            </div>
+            <div class="line-chart">
+              <svg viewBox="0 0 500 200" preserveAspectRatio="none" aria-label="Energy use chart">
+                <path class="forecast" d="M0 147 C38 126 62 145 92 112 S143 132 170 105 S218 126 244 85 S287 105 314 80 S355 95 388 45 S440 72 500 38"/>
+                <path class="actual" d="M0 158 C31 137 60 159 91 125 S142 146 172 116 S214 141 243 102 S285 118 317 91 S363 110 389 61 S437 82 500 49"/>
+              </svg>
+            </div>
+            <div class="chart-times">
+              <span>12 AM</span>
+              <span>6 AM</span>
+              <span>12 PM</span>
+              <span>6 PM</span>
+              <span>Now</span>
+            </div>
+            <div class="chart-footer-link">
+              <a href="#consumption" class="tab-link-btn" data-target="consumption">View detailed consumption analytics →</a>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <!-- ======================================================== -->
+      <!-- TAB 2: CONSUMPTION -->
+      <!-- ======================================================== -->
+      <section class="tab-view" id="tab-consumption" data-tab="consumption">
+        <div class="dash-title">
+          <div>
+            <h2>Energy consumption & load profiles.</h2>
+            <p>Granular demand curves, peak load shaving, and multi-source energy telemetry.</p>
+          </div>
+          <div class="btn-group">
+            <button class="pill-btn active" data-interval="24h">24 Hours</button>
+            <button class="pill-btn" data-interval="7d">7 Days</button>
+            <button class="pill-btn" data-interval="30d">30 Days</button>
+            <button class="pill-btn" data-interval="ytd">YTD</button>
+          </div>
+        </div>
+
+        <div class="metric-grid-4">
+          <article class="metric-card">
+            <div class="metric-label">PEAK DEMAND TODAY <span>▲</span></div>
+            <strong>58.2 <small>kW</small></strong>
+            <p>Recorded at <b>2:15 PM</b> · Baseline 64 kW</p>
+            <div class="mini-tag green-tag">↓ 9% Shaved vs Baseline</div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-label">TOTAL CONSUMED <span>⌁</span></div>
+            <strong>648<span>.5</span> <small>kWh</small></strong>
+            <p>Total cost: <b>₹4,345.00</b></p>
+            <div class="mini-tag">₹6.70 / kWh avg rate</div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-label">GRID VS SOLAR RATIO <span>☼</span></div>
+            <strong>68<small>%</small> <span>/ 32%</span></strong>
+            <p>32% powered by on-site solar</p>
+            <div class="mini-tag lime-tag">156 kWh Clean Solar</div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-label">POWER FACTOR <span>◎</span></div>
+            <strong>0.95</strong>
+            <p>Target: > 0.90 · No utility penalty</p>
+            <div class="mini-tag green-tag">Optimal Efficiency</div>
+          </article>
+        </div>
+
+        <!-- Detailed 24-Hour Load Curve with Peak Pricing Zone -->
+        <div class="card-box full-chart-box">
+          <div class="card-box-header">
+            <div>
+              <small class="eyebrow-small">TELEMETRY ANALYSIS</small>
+              <h3>24-Hour Load Profile & Peak Pricing Window</h3>
+            </div>
+            <div class="legend-advanced">
+              <span><i class="legend-line actual-line"></i> Actual Load (kW)</span>
+              <span><i class="legend-line forecast-line"></i> AI Forecast</span>
+              <span><i class="legend-line solar-line"></i> Solar Generation</span>
+              <span><i class="legend-zone peak-zone-box"></i> Peak Pricing Window (2–6 PM)</span>
+            </div>
+          </div>
+          
+          <div class="advanced-chart-container">
+            <div class="y-axis-labels">
+              <span>75 kW</span>
+              <span>50 kW</span>
+              <span>25 kW</span>
+              <span>0 kW</span>
+            </div>
+            <div class="svg-chart-wrapper">
+              <svg viewBox="0 0 800 240" preserveAspectRatio="none" class="detailed-svg">
+                <defs>
+                  <linearGradient id="solarGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#d6fa70" stop-opacity="0.45"/>
+                    <stop offset="100%" stop-color="#d6fa70" stop-opacity="0.02"/>
+                  </linearGradient>
+                  <linearGradient id="actualGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#ff693c" stop-opacity="0.25"/>
+                    <stop offset="100%" stop-color="#ff693c" stop-opacity="0.0"/>
+                  </linearGradient>
+                </defs>
+                <!-- Peak Zone Highlight: between ~2 PM and 6 PM (approx x 460 to 600) -->
+                <rect x="466" y="10" width="134" height="220" fill="rgba(255, 105, 60, 0.08)" stroke="#ff693c" stroke-dasharray="3 3" stroke-width="1"/>
+                <text x="474" y="28" fill="#ff693c" font-family="DM Mono" font-size="9" font-weight="600">PEAK TARIFF (₹9.80/kWh)</text>
+                
+                <!-- Solar Generation Curve -->
+                <path d="M0 230 C200 230 240 210 320 120 S400 40 480 90 S560 190 640 230 L800 230 L800 230 L0 230 Z" fill="url(#solarGrad)"/>
+                <path d="M0 230 C200 230 240 210 320 120 S400 40 480 90 S560 190 640 230 L800 230" fill="none" stroke="#7eb82e" stroke-width="2"/>
+                
+                <!-- Forecast Line (Dotted) -->
+                <path d="M0 170 C80 160 140 180 200 135 S300 150 400 100 S500 130 600 85 S700 120 800 110" fill="none" stroke="#8c9487" stroke-width="2" stroke-dasharray="5 5"/>
+
+                <!-- Actual Load Curve with subtle area fill -->
+                <path d="M0 180 C80 170 140 190 200 145 S300 165 400 110 S500 140 600 95 S700 135 800 120 L800 230 L0 230 Z" fill="url(#actualGrad)"/>
+                <path d="M0 180 C80 170 140 190 200 145 S300 165 400 110 S500 140 600 95 S700 135 800 120" fill="none" stroke="#ff693c" stroke-width="3"/>
+                
+                <!-- Current Time Marker at ~2:30 PM (x ~ 480) -->
+                <line x1="485" y1="10" x2="485" y2="230" stroke="#20251f" stroke-width="1.5" stroke-dasharray="2 2"/>
+                <circle cx="485" cy="142" r="4.5" fill="#20251f" stroke="#d6fa70" stroke-width="2"/>
+              </svg>
+            </div>
+          </div>
+          <div class="chart-times advanced-chart-times">
+            <span>00:00</span>
+            <span>03:00</span>
+            <span>06:00</span>
+            <span>09:00</span>
+            <span>12:00</span>
+            <span>15:00 (Now)</span>
+            <span>18:00</span>
+            <span>21:00</span>
+            <span>24:00</span>
+          </div>
+
+          <div class="chart-stats-strip">
+            <div><small>OFF-PEAK CONSUMPTION</small><b>340 kWh</b><p>₹2,210 @ ₹6.50/kWh</p></div>
+            <div><small>PEAK WINDOW USAGE</small><b>182 kWh</b><p>₹1,783 @ ₹9.80/kWh</p></div>
+            <div><small>SOLAR SELF-CONSUMED</small><b>126.5 kWh</b><p>₹1,020 saved today</p></div>
+            <div><small>PROJECTED SAVINGS</small><b>₹84.20</b><p>Via pre-cooling schedule</p></div>
+          </div>
+        </div>
+
+        <!-- 2 Column Breakdown: Sources & End-Uses -->
+        <div class="dashboard-split" style="margin-top: 18px;">
+          <!-- Energy Sources -->
+          <div class="card-box">
+            <div class="card-box-header">
+              <div>
+                <small class="eyebrow-small">SUPPLY MIX</small>
+                <h3>Energy Source Distribution</h3>
+              </div>
+            </div>
+            <div class="breakdown-list">
+              <div class="breakdown-item">
+                <div class="breakdown-info">
+                  <b>Main Grid Supply</b>
+                  <span>441.0 kWh (68%)</span>
+                </div>
+                <div class="progress-bar"><div class="fill" style="width: 68%; background: #20251f;"></div></div>
+              </div>
+              <div class="breakdown-item">
+                <div class="breakdown-info">
+                  <b>Rooftop Solar PV Array</b>
+                  <span>156.0 kWh (24%)</span>
+                </div>
+                <div class="progress-bar"><div class="fill" style="width: 24%; background: #d6fa70;"></div></div>
+              </div>
+              <div class="breakdown-item">
+                <div class="breakdown-info">
+                  <b>Battery Storage System (BESS)</b>
+                  <span>51.5 kWh (8%)</span>
+                </div>
+                <div class="progress-bar"><div class="fill" style="width: 8%; background: #ff693c;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Department / End-Use Load Breakdown -->
+          <div class="card-box">
+            <div class="card-box-header">
+              <div>
+                <small class="eyebrow-small">END-USE BREAKDOWN</small>
+                <h3>Load by Subsystems</h3>
+              </div>
+            </div>
+            <div class="breakdown-list">
+              <div class="breakdown-item">
+                <div class="breakdown-info">
+                  <b>HVAC & Chilled Water Loop</b>
+                  <span>285.3 kWh (44%)</span>
+                </div>
+                <div class="progress-bar"><div class="fill" style="width: 44%; background: #ff693c;"></div></div>
+              </div>
+              <div class="breakdown-item">
+                <div class="breakdown-info">
+                  <b>Machinery & R&D Equipment</b>
+                  <span>168.6 kWh (26%)</span>
+                </div>
+                <div class="progress-bar"><div class="fill" style="width: 26%; background: #20251f;"></div></div>
+              </div>
+              <div class="breakdown-item">
+                <div class="breakdown-info">
+                  <b>Server Infrastructure & UPS</b>
+                  <span>103.8 kWh (16%)</span>
+                </div>
+                <div class="progress-bar"><div class="fill" style="width: 16%; background: #5c6758;"></div></div>
+              </div>
+              <div class="breakdown-item">
+                <div class="breakdown-info">
+                  <b>Architectural Lighting & Plug Loads</b>
+                  <span>90.8 kWh (14%)</span>
+                </div>
+                <div class="progress-bar"><div class="fill" style="width: 14%; background: #d6fa70;"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================== -->
+      <!-- TAB 3: AI INSIGHTS -->
+      <!-- ======================================================== -->
+      <section class="tab-view" id="tab-insights" data-tab="insights">
+        <div class="dash-title">
+          <div>
+            <h2>AI Insights & autonomous actions.</h2>
+            <p>Predictive savings recommendations, equipment anomaly detection, and automated dispatch.</p>
+          </div>
+          <div class="btn-group">
+            <button class="pill-btn active" data-filter="all">All Insights (4)</button>
+            <button class="pill-btn" data-filter="high">High Impact (2)</button>
+            <button class="pill-btn" data-filter="anomaly">Anomalies (1)</button>
+            <button class="pill-btn" data-filter="solar">Renewables (1)</button>
+          </div>
+        </div>
+
+        <!-- KPI strip -->
+        <div class="metric-grid-4">
+          <article class="metric-card">
+            <div class="metric-label">MONTHLY SAVINGS POTENTIAL <span>₹</span></div>
+            <strong>₹14,250</strong>
+            <p><b class="down">↓ 14%</b> reduction in monthly power bill</p>
+            <div class="mini-tag lime-tag">Calculated by Astra AI</div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-label">ACTIONS EXECUTED <span>✓</span></div>
+            <strong>18 <small>this month</small></strong>
+            <p>100% tenant comfort preserved</p>
+            <div class="mini-tag green-tag">Autonomous Mode: Active</div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-label">MODEL CONFIDENCE <span>◎</span></div>
+            <strong>94.2<small>%</small></strong>
+            <p>Trained on 4.2M campus data points</p>
+            <div class="mini-tag">High Accuracy</div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-label">CRITICAL ANOMALIES <span>!</span></div>
+            <strong id="kpi-anomaly-count">1 <small>active</small></strong>
+            <p>AHU-04 vibration telemetry</p>
+            <div class="mini-tag orange-tag">Action Required</div>
+          </article>
+        </div>
+
+        <!-- Insights Detailed List -->
+        <div class="insights-feed">
+          <!-- Card 1 -->
+          <article class="insight-detail-card" data-category="high" id="insight-card-precool">
+            <div class="card-left-badge">
+              <span class="action-mark orange-bg">↘</span>
+            </div>
+            <div class="card-main-content">
+              <div class="insight-meta">
+                <span class="badge high-badge">HIGH IMPACT</span>
+                <span class="confidence-tag">96% CONFIDENCE</span>
+                <span class="savings-tag">EST. SAVINGS: ₹84.20 TODAY (₹2,100 / MO)</span>
+              </div>
+              <h3>Pre-cool Building A before 2:00 PM peak grid tariff window</h3>
+              <p>Grid electricity rates surge from ₹6.50 to ₹9.80 / kWh between 2:00 PM and 6:00 PM. By ramping cooling from 12:30 PM to 1:45 PM while power is cheap, the chiller plant can idle during high tariff hours without altering indoor temperature beyond 0.5°C.</p>
+              
+              <div class="insight-param-grid">
+                <div><small>TRIGGER WINDOW</small><b>12:30 PM – 1:45 PM</b></div>
+                <div><small>COOLING SETPOINT</small><b>22.0°C → 20.5°C</b></div>
+                <div><small>PEAK DEMAND REDUCTION</small><b>18.2 kW Avoided</b></div>
+                <div><small>ESTIMATED SAVINGS</small><b>₹84.20 (Today)</b></div>
+              </div>
+            </div>
+            <div class="card-actions">
+              <button class="btn-action-primary action-apply-btn" data-action="precool">Apply Schedule <span>→</span></button>
+              <button class="btn-action-secondary review-trigger-btn">Review details</button>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="insight-detail-card" data-category="anomaly" id="insight-card-ahu">
+            <div class="card-left-badge">
+              <span class="action-mark orange-bg">⌁</span>
+            </div>
+            <div class="card-main-content">
+              <div class="insight-meta">
+                <span class="badge warning-badge">EQUIPMENT ANOMALY</span>
+                <span class="confidence-tag">92% CONFIDENCE</span>
+                <span class="savings-tag">PREVENTATIVE RISK: HIGH</span>
+              </div>
+              <h3>AHU-04 supply fan abnormal vibration & 32% power surge</h3>
+              <p>Air Handling Unit 4 on Floor 3 North is drawing 14.8 kW against an expected baseline of 11.2 kW. Accelerometer telemetry indicates 2.4 mm/s RMS vibration, characteristic of fan belt slippage or bearing degradation before catastrophic lockup.</p>
+              
+              <div class="insight-param-grid">
+                <div><small>ASSET</small><b>AHU-04 (Floor 3)</b></div>
+                <div><small>CURRENT DRAW</small><b>14.8 kW (+32%)</b></div>
+                <div><small>VIBRATION LEVEL</small><b>2.4 mm/s (High)</b></div>
+                <div><small>RECOMMENDED ACTION</small><b>Dispatch Mechanical Inspection</b></div>
+              </div>
+            </div>
+            <div class="card-actions">
+              <button class="btn-action-primary action-apply-btn" data-action="ahu">Create Work Order <span>→</span></button>
+              <button class="btn-action-secondary tab-link-btn" data-target="equipment">Open Equipment Tab</button>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="insight-detail-card" data-category="solar" id="insight-card-solar">
+            <div class="card-left-badge">
+              <span class="action-mark lime-bg">☼</span>
+            </div>
+            <div class="card-main-content">
+              <div class="insight-meta">
+                <span class="badge lime-badge">RENEWABLE SYNERGY</span>
+                <span class="confidence-tag">89% CONFIDENCE</span>
+                <span class="savings-tag">EST. VALUE: ₹125.00 / DAY</span>
+              </div>
+              <h3>Schedule campus EV fleet charging during peak solar generation</h3>
+              <p>Rooftop solar generation is tracking 12% above forecast today, peaking between 11:30 AM and 2:30 PM. Dispatching campus shuttles and fleet EVs to Level 2 chargers during this window absorbs 42 kWh of surplus generation, bypassing grid export limits.</p>
+              
+              <div class="insight-param-grid">
+                <div><small>OPTIMAL WINDOW</small><b>11:30 AM – 02:30 PM</b></div>
+                <div><small>AVAILABLE SURPLUS</small><b>+34.2 kW Peak Solar</b></div>
+                <div><small>CHARGING CAPACITY</small><b>6 Fleet EVs</b></div>
+                <div><small>CARBON OFFSET</small><b>32 kg CO₂ Avoided</b></div>
+              </div>
+            </div>
+            <div class="card-actions">
+              <button class="btn-action-primary action-apply-btn" data-action="solar">Schedule EV Dispatch <span>→</span></button>
+              <button class="btn-action-secondary" onclick="alert('Charging schedule dispatched to Fleet Gateway.')">Quick Confirm</button>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="insight-detail-card" data-category="high" id="insight-card-baseload">
+            <div class="card-left-badge">
+              <span class="action-mark cream-bg">⌂</span>
+            </div>
+            <div class="card-main-content">
+              <div class="insight-meta">
+                <span class="badge neutral-badge">EFFICIENCY FINDING</span>
+                <span class="confidence-tag">85% CONFIDENCE</span>
+                <span class="savings-tag">EST. SAVINGS: ₹42.00 / NIGHT</span>
+              </div>
+              <h3>Unoccupied ghost load detected in Building B overnight</h3>
+              <p>Continuous base load of 6.4 kW observed between 11:00 PM and 5:00 AM in Building B lab annex while badged occupancy was 0. Enabling Smart Sleep will automatically power down auxiliary exhaust fans and non-critical bench outlets.</p>
+              
+              <div class="insight-param-grid">
+                <div><small>TIME WINDOW</small><b>23:00 – 05:00 Daily</b></div>
+                <div><small>PARASITIC DRAW</small><b>6.4 kW Continuous</b></div>
+                <div><small>MONTHLY WASTE</small><b>1,152 kWh</b></div>
+                <div><small>EST. SAVINGS</small><b>₹1,260 / Month</b></div>
+              </div>
+            </div>
+            <div class="card-actions">
+              <button class="btn-action-primary action-apply-btn" data-action="baseload">Enable Smart Sleep <span>→</span></button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ======================================================== -->
+      <!-- TAB 4: EQUIPMENT -->
+      <!-- ======================================================== -->
+      <section class="tab-view" id="tab-equipment" data-tab="equipment">
+        <div class="dash-title">
+          <div>
+            <h2>Connected equipment & telemetry.</h2>
+            <p>Live operational status, power draw, and predictive maintenance tracking across campus assets.</p>
+          </div>
+          <div class="search-and-filter">
+            <input type="text" id="equipment-search" class="equipment-search-input" placeholder="Search equipment ID or name..." />
+          </div>
+        </div>
+
+        <!-- Status Pills Summary -->
+        <div class="equipment-status-bar">
+          <div class="status-summary-item">
+            <span class="status-indicator-dot dot-all"></span>
+            <b>18</b> Connected Assets
+          </div>
+          <div class="status-summary-item">
+            <span class="status-indicator-dot dot-green"></span>
+            <b>16</b> Optimal Condition
+          </div>
+          <div class="status-summary-item">
+            <span class="status-indicator-dot dot-orange"></span>
+            <b id="status-anomaly-count">1</b> Anomaly Detected
+          </div>
+          <div class="status-summary-item">
+            <span class="status-indicator-dot dot-grey"></span>
+            <b>1</b> Maintenance Due
+          </div>
+          <div class="status-summary-item ml-auto">
+            <small>TOTAL ASSET DRAW:</small> <strong id="eq-total-kw">42.8 kW</strong>
+          </div>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="btn-group" style="margin: 20px 0 16px;">
+          <button class="pill-btn active" data-eq-filter="all">All Assets (7 shown)</button>
+          <button class="pill-btn" data-eq-filter="hvac">HVAC & Cooling</button>
+          <button class="pill-btn" data-eq-filter="power">Power & Inverters</button>
+          <button class="pill-btn" data-eq-filter="lighting">Lighting & Plug</button>
+        </div>
+
+        <!-- Equipment Cards Grid -->
+        <div class="equipment-grid" id="equipment-grid">
+          <!-- Asset 1: AHU-04 -->
+          <article class="equipment-card warning-card" data-category="hvac" data-name="AHU-04 Air Handling Unit">
+            <div class="equipment-card-top">
+              <span class="eq-icon">▦</span>
+              <div>
+                <h4>AHU-04 · Air Handling Unit</h4>
+                <small>Building A · Floor 3 North Wing</small>
+              </div>
+              <span class="badge warning-badge">ANOMALY</span>
+            </div>
+            <div class="eq-metrics">
+              <div><small>CURRENT DRAW</small><b>14.8 kW</b><span class="down-warn">▲ +32% spike</span></div>
+              <div><small>EFFICIENCY</small><b>74% Health</b><span>Bearing friction</span></div>
+              <div><small>VIBRATION</small><b>2.4 mm/s</b><span class="down-warn">Above threshold</span></div>
+              <div><small>RUNTIME TODAY</small><b>8.2 Hours</b><span>Continuous</span></div>
+            </div>
+            <div class="eq-alert-strip">
+              ⚠️ Telemetry alert: High RMS vibration and thermal spike in motor housing.
+            </div>
+            <div class="eq-actions">
+              <button class="btn-eq-action primary-eq" data-diag="AHU-04">View Diagnostics <span>→</span></button>
+              <button class="btn-eq-action" data-ticket="AHU-04">Create Ticket</button>
+            </div>
+          </article>
+
+          <!-- Asset 2: Chiller Plant 01 -->
+          <article class="equipment-card" data-category="hvac" data-name="Chiller Plant 01 Centrifugal">
+            <div class="equipment-card-top">
+              <span class="eq-icon">❄</span>
+              <div>
+                <h4>Chiller Plant 01 · Centrifugal</h4>
+                <small>Central Utility Plant · 400 Ton Base</small>
+              </div>
+              <span class="badge lime-badge">OPTIMAL</span>
+            </div>
+            <div class="eq-metrics">
+              <div><small>CURRENT DRAW</small><b>18.4 kW</b><span>Within target</span></div>
+              <div><small>COP RATING</small><b>5.2 COP</b><span>High efficiency</span></div>
+              <div><small>DELTA-T</small><b>6.2 °C</b><span>Supply 6.8°C</span></div>
+              <div><small>LOAD FACTOR</small><b>58% Capacity</b><span>Variable VFD</span></div>
+            </div>
+            <div class="eq-actions">
+              <button class="btn-eq-action" data-diag="Chiller Plant 01">View Diagnostics</button>
+              <button class="btn-eq-action" data-diag="Chiller Plant 01 Setpoint">Setpoints</button>
+            </div>
+          </article>
+
+          <!-- Asset 3: Solar Array Inverter B -->
+          <article class="equipment-card" data-category="power" data-name="Solar Inverter Array B 120kW">
+            <div class="equipment-card-top">
+              <span class="eq-icon">☼</span>
+              <div>
+                <h4>Solar Inverter Array B · 120kW</h4>
+                <small>Rooftop Solar Substation 2</small>
+              </div>
+              <span class="badge lime-badge">GENERATING</span>
+            </div>
+            <div class="eq-metrics">
+              <div><small>GENERATION</small><b>+34.2 kW</b><span class="down">▲ 12% above goal</span></div>
+              <div><small>INVERTER TEMP</small><b>41.2 °C</b><span>Cooling fan auto</span></div>
+              <div><small>DC-TO-AC EFF.</small><b>98.4%</b><span>MPPT active</span></div>
+              <div><small>ENERGY TODAY</small><b>156.0 kWh</b><span>Exporting to bus</span></div>
+            </div>
+            <div class="eq-actions">
+              <button class="btn-eq-action" data-diag="Solar Inverter B">Telemetry Stream</button>
+            </div>
+          </article>
+
+          <!-- Asset 4: Main Substation Transformer -->
+          <article class="equipment-card" data-category="power" data-name="Transformer Substation 11kV Alpha">
+            <div class="equipment-card-top">
+              <span class="eq-icon">⚡</span>
+              <div>
+                <h4>Main Transformer Substation Alpha</h4>
+                <small>11kV / 415V Primary Feed</small>
+              </div>
+              <span class="badge lime-badge">OPTIMAL</span>
+            </div>
+            <div class="eq-metrics">
+              <div><small>CAMPUS LOAD</small><b>42.8 kW</b><span>38% rated cap</span></div>
+              <div><small>POWER FACTOR</small><b>0.96 PF</b><span>Capacitor auto</span></div>
+              <div><small>FREQUENCY</small><b>50.02 Hz</b><span>Stable sync</span></div>
+              <div><small>OIL TEMP</small><b>52.1 °C</b><span>Normal limits</span></div>
+            </div>
+            <div class="eq-actions">
+              <button class="btn-eq-action" data-diag="Transformer Substation">Bus Telemetry</button>
+            </div>
+          </article>
+
+          <!-- Asset 5: Core Server Room UPS Cluster -->
+          <article class="equipment-card" data-category="power" data-name="Server Room UPS Cluster Double Conversion">
+            <div class="equipment-card-top">
+              <span class="eq-icon">▥</span>
+              <div>
+                <h4>Core Server Room UPS Cluster</h4>
+                <small>Building B Data Center · N+1 Redundant</small>
+              </div>
+              <span class="badge lime-badge">OPTIMAL</span>
+            </div>
+            <div class="eq-metrics">
+              <div><small>CURRENT DRAW</small><b>7.6 kW</b><span>Clean sine wave</span></div>
+              <div><small>BATTERY STATE</small><b>100% Float</b><span>LiFePO4 Health 99%</span></div>
+              <div><small>BACKUP TIME</small><b>4.8 Hours</b><span>At current load</span></div>
+              <div><small>PUE RATING</small><b>1.24 PUE</b><span>High tier</span></div>
+            </div>
+            <div class="eq-actions">
+              <button class="btn-eq-action" data-diag="Server Room UPS">Battery Health Test</button>
+            </div>
+          </article>
+
+          <!-- Asset 6: Building A Smart LED Grid -->
+          <article class="equipment-card" data-category="lighting" data-name="Smart LED Lighting Grid DALI">
+            <div class="equipment-card-top">
+              <span class="eq-icon">💡</span>
+              <div>
+                <h4>Smart LED Lighting Grid</h4>
+                <small>Building A Floors 1–4 · DALI-2 Zones</small>
+              </div>
+              <span class="badge lime-badge">OPTIMAL</span>
+            </div>
+            <div class="eq-metrics">
+              <div><small>CURRENT DRAW</small><b>3.8 kW</b><span class="down">↓ 42% harvested</span></div>
+              <div><small>ACTIVE FIXTURES</small><b>240 / 240</b><span>0 failures</span></div>
+              <div><small>DAYLIGHT SENSORS</small><b>Active</b><span>Dimmed to 40%</span></div>
+              <div><small>SCHEDULE MODE</small><b>Business hrs</b><span>Auto-off at 7PM</span></div>
+            </div>
+            <div class="eq-actions">
+              <button class="btn-eq-action" data-diag="Lighting Grid">Zone Controls</button>
+            </div>
+          </article>
+
+          <!-- Asset 7: Emergency Diesel Generator G-1 -->
+          <article class="equipment-card" data-category="power" data-name="Emergency Generator G1 Standby">
+            <div class="equipment-card-top">
+              <span class="eq-icon">⚙</span>
+              <div>
+                <h4>Emergency Generator G-1 (500 kVA)</h4>
+                <small>Standby Power Facility</small>
+              </div>
+              <span class="badge neutral-badge">STANDBY</span>
+            </div>
+            <div class="eq-metrics">
+              <div><small>STATE</small><b>Standby (Auto)</b><span>ATS primed</span></div>
+              <div><small>FUEL LEVEL</small><b>94% Diesel</b><span>48 hr reserve</span></div>
+              <div><small>LAST EXERCISE</small><b>14 Days ago</b><span>Passed 100%</span></div>
+              <div><small>INSPECTION</small><b>Due in 3 days</b><span>Scheduled</span></div>
+            </div>
+            <div class="eq-actions">
+              <button class="btn-eq-action" data-diag="Generator G-1">Self-Test Log</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ======================================================== -->
+      <!-- TAB 5: REPORTS -->
+      <!-- ======================================================== -->
+      <section class="tab-view" id="tab-reports" data-tab="reports">
+        <div class="dash-title">
+          <div>
+            <h2>Energy reports & export center.</h2>
+            <p>Download verifiable utility audits, carbon compliance statements, and load reduction records.</p>
+          </div>
+          <div class="btn-group">
+            <button class="button-export" id="btn-export-csv"><span>↓</span> Download CSV Report</button>
+            <button class="button-export secondary-btn" id="btn-print-report"><span>⎙</span> Print Executive Summary</button>
+          </div>
+        </div>
+
+        <!-- KPI Strip -->
+        <div class="metric-grid-4">
+          <article class="metric-card">
+            <div class="metric-label">APRIL 2026 ENERGY <span>⌁</span></div>
+            <strong>18,420 <small>kWh</small></strong>
+            <p>Billed via Northstar Grid Meter</p>
+            <div class="mini-tag">Net consumption</div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-label">TOTAL UTILITY SPEND <span>₹</span></div>
+            <strong>₹1,24,500</strong>
+            <p><b class="down">↓ ₹14,250</b> saved via AI</p>
+            <div class="mini-tag green-tag">10.3% Cost Reduction</div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-label">SOLAR OFFSET <span>☼</span></div>
+            <strong>4,680 <small>kWh</small></strong>
+            <p>25.4% of total facility demand</p>
+            <div class="mini-tag lime-tag">Clean Generation</div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-label">AVOIDED EMISSIONS <span>◎</span></div>
+            <strong>4.82 <small>tCO₂e</small></strong>
+            <p>Scope 2 GHG compliance validated</p>
+            <div class="mini-tag green-tag">Audit Verified</div>
+          </article>
+        </div>
+
+        <!-- Available Report Templates Cards -->
+        <div class="report-templates-grid">
+          <div class="template-card active" data-report-type="monthly">
+            <div class="template-icon">▦</div>
+            <h4>Monthly Executive Energy Statement</h4>
+            <p>Complete reconciliation of billed kWh, maximum peak demand charges, and daily cost breakdown for April 2026.</p>
+            <span class="report-meta">Format: CSV & PDF · Updated 10 mins ago</span>
+          </div>
+          <div class="template-card" data-report-type="esg">
+            <div class="template-icon">◎</div>
+            <h4>Q1 2026 ESG & Carbon Audit</h4>
+            <p>Scope 2 greenhouse gas emissions documentation certified under GHG Protocol corporate standards.</p>
+            <span class="report-meta">Format: Sustainability Disclosure</span>
+          </div>
+          <div class="template-card" data-report-type="peak">
+            <div class="template-icon">▲</div>
+            <h4>Peak Demand Shaving & Tariff Log</h4>
+            <p>Audit verification of 14 automated load shifting events between 2:00 PM and 6:00 PM peak pricing windows.</p>
+            <span class="report-meta">Format: Demand-Response Filing</span>
+          </div>
+        </div>
+
+        <!-- Data Preview Table -->
+        <div class="card-box" style="margin-top: 24px;">
+          <div class="card-box-header">
+            <div>
+              <small class="eyebrow-small">STATEMENT DATA PREVIEW</small>
+              <h3 id="table-report-title">Daily Energy Log — Northstar Campus (April 2026)</h3>
+            </div>
+            <span class="table-badge">10 OF 30 DAYS SHOWN</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="report-table" id="report-table">
+              <thead>
+                <tr>
+                  <th>DATE</th>
+                  <th>PEAK DEMAND</th>
+                  <th>GRID ENERGY</th>
+                  <th>SOLAR GEN</th>
+                  <th>AVG CARBON</th>
+                  <th>EST. COST</th>
+                  <th>AI SAVED</th>
+                  <th>STATUS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>2026-04-16 (Today)</b></td>
+                  <td>42.8 kW</td>
+                  <td>441 kWh</td>
+                  <td>156 kWh</td>
+                  <td>218 g/kWh</td>
+                  <td>₹286.40</td>
+                  <td class="savings-col">₹84.20</td>
+                  <td><span class="badge lime-badge">Live</span></td>
+                </tr>
+                <tr>
+                  <td>2026-04-15</td>
+                  <td>56.1 kW</td>
+                  <td>612 kWh</td>
+                  <td>148 kWh</td>
+                  <td>224 g/kWh</td>
+                  <td>₹4,120.00</td>
+                  <td class="savings-col">₹92.40</td>
+                  <td><span class="badge neutral-badge">Verified</span></td>
+                </tr>
+                <tr>
+                  <td>2026-04-14</td>
+                  <td>58.4 kW</td>
+                  <td>638 kWh</td>
+                  <td>135 kWh</td>
+                  <td>231 g/kWh</td>
+                  <td>₹4,285.00</td>
+                  <td class="savings-col">₹76.00</td>
+                  <td><span class="badge neutral-badge">Verified</span></td>
+                </tr>
+                <tr>
+                  <td>2026-04-13</td>
+                  <td>41.2 kW</td>
+                  <td>390 kWh</td>
+                  <td>168 kWh</td>
+                  <td>198 g/kWh</td>
+                  <td>₹2,540.00</td>
+                  <td class="savings-col">₹110.50</td>
+                  <td><span class="badge neutral-badge">Verified</span></td>
+                </tr>
+                <tr>
+                  <td>2026-04-12</td>
+                  <td>38.9 kW</td>
+                  <td>345 kWh</td>
+                  <td>172 kWh</td>
+                  <td>192 g/kWh</td>
+                  <td>₹2,280.00</td>
+                  <td class="savings-col">₹114.00</td>
+                  <td><span class="badge neutral-badge">Verified</span></td>
+                </tr>
+                <tr>
+                  <td>2026-04-11</td>
+                  <td>57.3 kW</td>
+                  <td>625 kWh</td>
+                  <td>142 kWh</td>
+                  <td>226 g/kWh</td>
+                  <td>₹4,195.00</td>
+                  <td class="savings-col">₹88.50</td>
+                  <td><span class="badge neutral-badge">Verified</span></td>
+                </tr>
+                <tr>
+                  <td>2026-04-10</td>
+                  <td>59.0 kW</td>
+                  <td>644 kWh</td>
+                  <td>139 kWh</td>
+                  <td>229 g/kWh</td>
+                  <td>₹4,310.00</td>
+                  <td class="savings-col">₹95.00</td>
+                  <td><span class="badge neutral-badge">Verified</span></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>MONTH-TO-DATE</th>
+                  <th>59.0 kW Peak</th>
+                  <th>18,420 kWh</th>
+                  <th>4,680 kWh</th>
+                  <th>216 g/kWh</th>
+                  <th>₹1,24,500</th>
+                  <th class="savings-col">₹14,250</th>
+                  <th><span class="badge lime-badge">Reconciled</span></th>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================== -->
+      <!-- TAB 6: SETTINGS -->
+      <!-- ======================================================== -->
+      <section class="tab-view" id="tab-settings" data-tab="settings">
+        <div class="dash-title">
+          <div>
+            <h2>Facility settings & utility tariffs.</h2>
+            <p>Configure facility parameters, rate structures, autonomous dispatch limits, and alert webhooks.</p>
+          </div>
+          <div>
+            <button class="button-export" id="btn-save-settings">Save Changes <span>✓</span></button>
+          </div>
+        </div>
+
+        <div class="settings-grid">
+          <!-- Column 1: Facility Profile & Utility Tariffs -->
+          <div class="settings-col">
+            <!-- Facility Profile Card -->
+            <div class="card-box">
+              <div class="card-box-header">
+                <div>
+                  <small class="eyebrow-small">FACILITY TELEMETRY</small>
+                  <h3>Campus Identity & Profile</h3>
+                </div>
+              </div>
+              <form id="settings-facility-form" class="settings-form" onsubmit="event.preventDefault();">
+                <div class="form-group">
+                  <label for="set-campus-name">Facility / Campus Name</label>
+                  <input type="text" id="set-campus-name" value="Northstar Campus" />
+                </div>
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label for="set-facility-type">Facility Classification</label>
+                    <select id="set-facility-type">
+                      <option selected>Commercial & R&D Campus</option>
+                      <option>Manufacturing & Assembly</option>
+                      <option>Cold Chain & Logistics</option>
+                      <option>Data Center</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="set-gross-area">Gross Floor Area (sq. ft)</label>
+                    <input type="number" id="set-gross-area" value="45000" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="set-operating-hours">Operating Schedule</label>
+                  <input type="text" id="set-operating-hours" value="08:00 – 19:00 (Mon–Fri)" />
+                </div>
+              </form>
+            </div>
+
+            <!-- Utility Rates & Billing Rules Card -->
+            <div class="card-box" style="margin-top: 18px;">
+              <div class="card-box-header">
+                <div>
+                  <small class="eyebrow-small">TARIFF STRUCTURE</small>
+                  <h3>Utility Tariffs & Demand Charges</h3>
+                </div>
+              </div>
+              <form id="settings-tariffs-form" class="settings-form" onsubmit="event.preventDefault();">
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label for="set-offpeak-rate">Off-Peak Rate (₹ / kWh)</label>
+                    <input type="number" step="0.1" id="set-offpeak-rate" value="6.50" />
+                  </div>
+                  <div class="form-group">
+                    <label for="set-peak-rate">Peak Window Rate (₹ / kWh)</label>
+                    <input type="number" step="0.1" id="set-peak-rate" value="9.80" />
+                  </div>
+                </div>
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label for="set-peak-hours">Peak Window Timing</label>
+                    <input type="text" id="set-peak-hours" value="14:00 – 18:00" />
+                  </div>
+                  <div class="form-group">
+                    <label for="set-monthly-budget">Monthly Budget Target (₹)</label>
+                    <input type="number" id="set-monthly-budget" value="320000" />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Column 2: AI Autonomous Boundaries & Alerts -->
+          <div class="settings-col">
+            <!-- AI Control Boundaries Card -->
+            <div class="card-box">
+              <div class="card-box-header">
+                <div>
+                  <small class="eyebrow-small">AI POLICIES</small>
+                  <h3>Autonomous Dispatch Boundaries</h3>
+                </div>
+              </div>
+              <div class="toggle-list">
+                <div class="toggle-item">
+                  <div>
+                    <b>Autonomous Pre-Cooling Dispatch</b>
+                    <small>Permit Astra AI to adjust chiller setpoint before peak tariff hours</small>
+                  </div>
+                  <label class="switch">
+                    <input type="checkbox" id="toggle-precool" checked />
+                    <span class="slider"></span>
+                  </label>
+                </div>
+                
+                <div class="toggle-item">
+                  <div>
+                    <b>Solar Peak Fleet Charging Dispatch</b>
+                    <small>Auto-route EV charging during peak generation windows</small>
+                  </div>
+                  <label class="switch">
+                    <input type="checkbox" id="toggle-solar" checked />
+                    <span class="slider"></span>
+                  </label>
+                </div>
+
+                <div class="toggle-item">
+                  <div>
+                    <b>Auto Work-Order Creation</b>
+                    <small>Automatically flag critical equipment anomalies (> 90% confidence)</small>
+                  </div>
+                  <label class="switch">
+                    <input type="checkbox" id="toggle-workorder" checked />
+                    <span class="slider"></span>
+                  </label>
+                </div>
+
+                <div class="form-group" style="margin-top: 14px;">
+                  <label for="set-temp-tolerance">Maximum Allowed Thermostat Delta (±°C)</label>
+                  <input type="number" step="0.5" id="set-temp-tolerance" value="1.5" />
+                  <small class="form-hint">Guarantees occupant thermal comfort never varies more than ±1.5°C.</small>
+                </div>
+              </div>
+            </div>
+
+            <!-- Alerts & Notification Routing -->
+            <div class="card-box" style="margin-top: 18px;">
+              <div class="card-box-header">
+                <div>
+                  <small class="eyebrow-small">NOTIFICATION CHANNELS</small>
+                  <h3>Alert Webhooks & Contacts</h3>
+                </div>
+              </div>
+              <form id="settings-alerts-form" class="settings-form" onsubmit="event.preventDefault();">
+                <div class="form-group">
+                  <label for="set-alert-email">Facilities Engineering Email</label>
+                  <input type="email" id="set-alert-email" value="engineering@northstarcampus.io" />
+                </div>
+                <div class="form-group">
+                  <label for="set-sms-phone">Emergency SMS Dispatch Number</label>
+                  <input type="tel" id="set-sms-phone" value="+91 98765 43210" />
+                </div>
+                <div class="toggle-item" style="border-bottom: 0; padding-bottom: 0;">
+                  <div>
+                    <b>In-App Sound & Visual Alerts</b>
+                    <small>Play subtle audible notification on critical power surges</small>
+                  </div>
+                  <label class="switch">
+                    <input type="checkbox" id="toggle-sounds" checked />
+                    <span class="slider"></span>
+                  </label>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
-    <dialog id="profile-dialog"><form method="dialog"><button class="close-dialog" aria-label="Close">×</button><p class="eyebrow">PROFILE SETTINGS</p><h2>What should we call you?</h2><label for="name-input">Your name</label><input id="name-input" maxlength="25" value="Alex" placeholder="Enter your name" /><button class="save-name" value="save">Save name <span>→</span></button></form></dialog>
+
+    <!-- Profile Dialog -->
+    <dialog id="profile-dialog">
+      <form method="dialog">
+        <button class="close-dialog" type="button" aria-label="Close">×</button>
+        <p class="eyebrow">PROFILE SETTINGS</p>
+        <h2>What should we call you?</h2>
+        <label for="name-input">Your name</label>
+        <input id="name-input" maxlength="25" value="Alex" placeholder="Enter your name" />
+        <button class="save-name" value="save">Save name <span>→</span></button>
+      </form>
+    </dialog>
+
+    <!-- AI Recommendation Review Dialog -->
+    <dialog id="review-dialog">
+      <div class="dialog-inner">
+        <button class="close-dialog" id="close-review-dialog" type="button" aria-label="Close">×</button>
+        <div class="review-dialog-header">
+          <span class="action-mark orange-bg">↘</span>
+          <div>
+            <span class="badge high-badge">HIGH IMPACT RECOMMENDATION</span>
+            <h2>Pre-cool Building A Schedule</h2>
+            <small>Optimal execution window: 12:30 PM – 1:45 PM Today</small>
+          </div>
+        </div>
+
+        <div class="review-dialog-body">
+          <p>Astra AI predictive analysis anticipates a 34% tariff spike at 2:00 PM. Executing this pre-cooling shift prepares the thermal mass of Building A to cruise through peak demand hours without comfort impact.</p>
+          
+          <div class="review-params">
+            <div>
+              <small>ZONE</small>
+              <b>Building A (Floors 1–4)</b>
+            </div>
+            <div>
+              <small>CURRENT SETPOINT</small>
+              <b>22.0 °C</b>
+            </div>
+            <div>
+              <small>TARGET SETPOINT</small>
+              <b>20.5 °C (12:30–1:45 PM)</b>
+            </div>
+            <div>
+              <small>PEAK DRIFT ALLOWED</small>
+              <b>22.5 °C (2:00–5:30 PM)</b>
+            </div>
+            <div>
+              <small>CHILLER LOAD REDUCTION</small>
+              <b>18.2 kW Peak Avoided</b>
+            </div>
+            <div>
+              <small>ESTIMATED SAVINGS</small>
+              <b class="text-lime">₹84.20 Today</b>
+            </div>
+          </div>
+
+          <div class="review-status-notice">
+            <span>✓</span> Simulation complete: 0 tenant complaints predicted. Air quality index (AQI) stable at 42.
+          </div>
+        </div>
+
+        <div class="review-dialog-footer">
+          <button class="btn-cancel" id="btn-cancel-review">Dismiss</button>
+          <button class="btn-action-primary" id="btn-approve-review">Approve & Execute Schedule <span>→</span></button>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- Equipment Diagnostics Modal -->
+    <dialog id="diagnostics-dialog">
+      <div class="dialog-inner">
+        <button class="close-dialog" id="close-diag-dialog" type="button" aria-label="Close">×</button>
+        <div class="review-dialog-header">
+          <span class="action-mark orange-bg" id="diag-icon">▦</span>
+          <div>
+            <span class="badge warning-badge" id="diag-badge">LIVE DIAGNOSTICS</span>
+            <h2 id="diag-title">AHU-04 Air Handling Unit</h2>
+            <small id="diag-subtitle">Building A · Floor 3 North Wing</small>
+          </div>
+        </div>
+        <div class="review-dialog-body">
+          <div class="diag-stream-box">
+            <div class="diag-stream-header">
+              <span>● SENSOR TELEMETRY STREAM</span>
+              <span id="diag-stream-time">Sampling at 10 Hz</span>
+            </div>
+            <pre class="diag-console" id="diag-console">
+[12:14:02.102] CONNECTED to Asset Gateway (ID: AHU-04-A3)
+[12:14:02.240] Current Draw: 14.82 kW (WARNING: +32.4% vs baseline)
+[12:14:02.311] Supply Fan RPM: 1,420 RPM [VFD: 88%]
+[12:14:02.408] Accelerometer RMS: 2.42 mm/s [ALERT: Limit is 1.8 mm/s]
+[12:14:02.502] Motor Bearing Temp: 68.4°C (Normal: 52°C)
+[12:14:02.610] Airflow Volume: 14,200 CFM (Static Pressure: 1.8 in. w.g.)
+[12:14:02.720] AI DIAGNOSIS: Mechanical vibration pattern suggests belt tension slippage or bearing race wear.
+            </pre>
+          </div>
+        </div>
+        <div class="review-dialog-footer">
+          <button class="btn-cancel" id="btn-close-diag">Close</button>
+          <button class="btn-action-primary" id="btn-diag-action">Dispatch Maintenance Work Order <span>→</span></button>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container"></div>
+
     <script src="dashboard.js"></script>
   </body>
 </html>
