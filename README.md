@@ -2,7 +2,7 @@
 
 **Live demo:** https://bharath102007.github.io/ai-energy-monitoring/
 **Repository:** https://github.com/bharath102007/ai-energy-monitoring
-**Project presentation:** [EnergyIQ_Presentation.pptx](EnergyIQ_Presentation.pptx)
+**Project presentation:** [PowerPoint (.pptx)](EnergyIQ_Presentation.pptx) · [PDF](EnergyIQ_Presentation.pdf)
 
 A self-contained web prototype for tracking home appliance energy usage and cost in real time.
 
