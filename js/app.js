@@ -119,6 +119,41 @@ function renderView(quiet = false) {
   }
 }
 
+// Fast per-second refresh: update only live numbers instead of rebuilding the whole dashboard.
+function refreshDashboardLive() {
+  const s = getState();
+  const key = todayKey();
+  const energy = dayEnergy(key);
+  const cost = dayCost(key);
+  const live = livePower();
+  const avg = averageDaily(7);
+  const connected = s.appliances.reduce((n, a) => n + a.watts, 0);
+
+  const cards = document.querySelectorAll('#view .stat-card');
+  if (cards.length >= 4) {
+    cards[0].querySelector('.stat-value').innerHTML = `${niceNumber(energy)} <small>kWh</small>`;
+    cards[1].querySelector('.stat-value').textContent = money(cost);
+    cards[2].querySelector('.stat-value').innerHTML = `${niceNumber(live, 0)} <small>W</small>`;
+    cards[3].querySelector('.stat-value').innerHTML = `${niceNumber(avg)} <small>kWh</small>`;
+  }
+  const heroNumber = document.querySelector('#view .hero-number');
+  if (heroNumber) heroNumber.innerHTML = `${niceNumber(live, 0)}<span> W</span>`;
+  const heroSub = document.querySelector('#view .hero-sub');
+  if (heroSub) heroSub.textContent = `${niceNumber(energy)} kWh used today · ${money(cost)} so far`;
+  const gaugeWrap = document.querySelector('#view .gauge-wrap');
+  if (gaugeWrap) gaugeWrap.innerHTML = gauge(connected ? live / connected : 0, niceNumber(live, 0) + ' W', `of ${niceNumber(connected, 0)} W connected`);
+
+  document.querySelectorAll('#view .appliance-row').forEach(row => {
+    const id = row.querySelector('[data-action="toggle-appliance"]')?.dataset.id;
+    const appliance = s.appliances.find(a => a.id === id);
+    if (!appliance) return;
+    const power = row.querySelector('.row-power strong');
+    const used = row.querySelector('.row-power span');
+    if (power) power.textContent = appliance.on ? `${niceNumber(appliance.watts, 0)} W` : '—';
+    if (used) used.textContent = `${niceNumber(applianceDayEnergy(key, appliance.id))} kWh today`;
+  });
+}
+
 /* ---------- screens ---------- */
 
 function statCard(label, value, unit, iconName, tone, foot) {
@@ -874,14 +909,12 @@ function submitChat(text) {
 
 /* ---------- boot ---------- */
 
-// Inject the animated neon data-wave layers into every themed scene and the intro.
+// Inject lightweight neon data-wave layers into the themed scenes.
 const NEON_WAVES = `<div class="neon-waves">
   <svg class="nw nw1" viewBox="0 0 1200 260" preserveAspectRatio="none"><path d="M-120 170 C80 40 180 280 360 160 S640 40 820 170 S1080 280 1320 140"/></svg>
   <svg class="nw nw2" viewBox="0 0 1200 260" preserveAspectRatio="none"><path d="M-120 90 C100 230 220 -20 420 120 S700 250 900 100 S1120 -10 1320 110"/></svg>
-  <svg class="nw nw3" viewBox="0 0 1200 260" preserveAspectRatio="none"><path d="M-120 200 C120 90 240 260 440 170 S720 80 920 190 S1140 250 1320 160"/></svg>
-  <div class="nw-particles"></div>
 </div>`;
-document.querySelectorAll('.scene, .intro').forEach(el => el.insertAdjacentHTML('afterbegin', NEON_WAVES));
+document.querySelectorAll('.scene').forEach(el => el.insertAdjacentHTML('afterbegin', NEON_WAVES));
 
 getState();
 save();
@@ -890,10 +923,10 @@ renderView();
 renderSettings();
 bindEvents();
 
-setTimeout(() => document.getElementById('intro')?.remove(), 5600);
+setTimeout(() => document.getElementById('intro')?.remove(), 2800);
 
 setInterval(() => {
   tick();
-  if (ui.tab === 'dashboard') renderView(true);
+  if (ui.tab === 'dashboard') refreshDashboardLive();
   if (document.getElementById('settings-drawer').classList.contains('show')) renderSettings();
 }, 1000);
