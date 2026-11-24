@@ -64,7 +64,7 @@ export function donutChart(segments, opts = {}) {
   const r = 54, c = 2 * Math.PI * r, cx = 70, cy = 70;
 
   let svg = `<svg class="chart-svg" viewBox="0 0 140 140" style="max-width:190px;margin:0 auto" role="img">`;
-  svg += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#eef0f6" stroke-width="18"/>`;
+  svg += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="18"/>`;
 
   if (total > 0) {
     let offset = 0;
@@ -88,7 +88,7 @@ export function gauge(fraction, labelTop, labelBottom) {
   const f = Math.max(0, Math.min(1, fraction));
   const color = f < .6 ? '#12b886' : f < .85 ? '#f59e0b' : '#ef5f6b';
   return `<svg viewBox="0 0 140 140" width="150" height="150" role="img">
-    <circle cx="70" cy="70" r="52" fill="none" stroke="#eef0f6" stroke-width="13"/>
+    <circle cx="70" cy="70" r="52" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="13"/>
     <circle cx="70" cy="70" r="52" fill="none" stroke="${color}" stroke-width="13" stroke-linecap="round"
       stroke-dasharray="${c * f} ${c}" transform="rotate(-90 70 70)" style="transition:stroke-dasharray .5s"/>
   </svg><div class="gauge-center"><strong>${escapeHtml(labelTop)}</strong><span>${escapeHtml(labelBottom)}</span></div>`;

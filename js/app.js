@@ -874,6 +874,15 @@ function submitChat(text) {
 
 /* ---------- boot ---------- */
 
+// Inject the animated neon data-wave layers into every themed scene and the intro.
+const NEON_WAVES = `<div class="neon-waves">
+  <svg class="nw nw1" viewBox="0 0 1200 260" preserveAspectRatio="none"><path d="M-120 170 C80 40 180 280 360 160 S640 40 820 170 S1080 280 1320 140"/></svg>
+  <svg class="nw nw2" viewBox="0 0 1200 260" preserveAspectRatio="none"><path d="M-120 90 C100 230 220 -20 420 120 S700 250 900 100 S1120 -10 1320 110"/></svg>
+  <svg class="nw nw3" viewBox="0 0 1200 260" preserveAspectRatio="none"><path d="M-120 200 C120 90 240 260 440 170 S720 80 920 190 S1140 250 1320 160"/></svg>
+  <div class="nw-particles"></div>
+</div>`;
+document.querySelectorAll('.scene, .intro').forEach(el => el.insertAdjacentHTML('afterbegin', NEON_WAVES));
+
 getState();
 save();
 renderNav();
