@@ -10,7 +10,7 @@ A self-contained web prototype for tracking home appliance energy usage and cost
 ES modules need an HTTP server (opening `index.html` directly with `file://` will not work):
 
 ```bash
-cd "Documents/Default Project"
+cd Documents/EnergyIQ
 python3 -m http.server 4173
 ```
 
@@ -29,6 +29,10 @@ Then open **http://localhost:4173** in your browser. No npm install or build ste
 | **Chatbot** | Ask about top consumer, today's cost, unusual spikes, credit balance, weekly/monthly usage, savings tips and sensor connectivity |
 
 Settings (gear icon): electricity tariff (₹/unit), simulation speed, reset demo data and clear chat.
+
+### Motion and ambience
+
+Opening the app plays a short branded intro. Every tab then gets its own animated, CSS-only backdrop that matches the topic — energy pulses on Dashboard, drifting appliances on Appliances, rising bars on Usage, floating report sheets on Reports, orbiting AI nodes on Insights, growing vines and leaves on Green Credits, and floating chat bubbles on Chatbot. Cards animate in when you switch tabs. All motion is disabled automatically when the OS requests reduced motion, and the backdrop is hidden when printing a report.
 
 ## How the data works
 

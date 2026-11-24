@@ -25,7 +25,8 @@ const ui = {
   confirmDeleteId: null,
   sidebarOpen: false,
   applianceDate: todayKey(),
-  reportMonth: shiftMonth(0)
+  reportMonth: shiftMonth(0),
+  freshTimer: null
 };
 
 const TABS = [
@@ -89,8 +90,9 @@ function updateHeader() {
     `${weekday(now, true).toUpperCase()} · ${shortDate(now).toUpperCase()}`;
 }
 
-function renderView() {
+function renderView(quiet = false) {
   updateHeader();
+  document.body.dataset.tab = ui.tab;
   const views = {
     dashboard: dashboardView,
     appliances: appliancesView,
@@ -100,7 +102,15 @@ function renderView() {
     credits: creditsView,
     chat: chatView
   };
-  document.getElementById('view').innerHTML = (views[ui.tab] || dashboardView)();
+  const view = document.getElementById('view');
+  view.innerHTML = (views[ui.tab] || dashboardView)();
+  if (!quiet) {
+    view.classList.remove('fresh');
+    void view.offsetWidth; // restart the entrance animation
+    view.classList.add('fresh');
+    clearTimeout(ui.freshTimer);
+    ui.freshTimer = setTimeout(() => view.classList.remove('fresh'), 1100);
+  }
   if (ui.tab === 'chat') {
     requestAnimationFrame(() => {
       const body = document.querySelector('.chat-body');
@@ -871,8 +881,10 @@ renderView();
 renderSettings();
 bindEvents();
 
+setTimeout(() => document.getElementById('intro')?.remove(), 2200);
+
 setInterval(() => {
   tick();
-  if (ui.tab === 'dashboard') renderView();
+  if (ui.tab === 'dashboard') renderView(true);
   if (document.getElementById('settings-drawer').classList.contains('show')) renderSettings();
 }, 1000);

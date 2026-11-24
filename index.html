@@ -39,6 +39,50 @@
     </aside>
 
     <div class="main-wrap">
+      <!-- Animated themed backdrop — each tab has its own scene -->
+      <div class="ambient" aria-hidden="true">
+        <div class="scene scene-dashboard">
+          <div class="glow g1"></div><div class="glow g2"></div>
+          <div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="orbit"><i></i><i></i><i></i></div>
+          <span class="float f1">⚡</span><span class="float f2">W</span><span class="float f3">↗</span>
+        </div>
+        <div class="scene scene-appliances">
+          <div class="glow g1"></div><div class="halo"></div><div class="circuit"></div>
+          <span class="float f1">❄️</span><span class="float f2">💡</span><span class="float f3">📺</span><span class="float f4">🌀</span><span class="float f5">🔌</span>
+        </div>
+        <div class="scene scene-usage">
+          <div class="glow g1"></div><div class="grid-lines"></div>
+          <div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <span class="float f1">kWh</span><span class="float f2">₹</span>
+        </div>
+        <div class="scene scene-reports">
+          <div class="glow g1"></div><div class="scan"></div>
+          <div class="sheet"><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="sheet sheet-2"><i></i><i></i><i></i><i></i></div>
+          <span class="float f1">📄</span><span class="float f2">🗓️</span>
+        </div>
+        <div class="scene scene-insights">
+          <div class="glow g1"></div>
+          <div class="orbit big"><i></i><i></i><i></i><i></i></div>
+          <div class="orbit small"><i></i><i></i><i></i></div>
+          <span class="float f1">✦</span><span class="float f2">✧</span><span class="float f3">✦</span>
+        </div>
+        <div class="scene scene-credits">
+          <div class="glow g1"></div><div class="glow g2"></div>
+          <svg class="vine" viewBox="0 0 220 320" preserveAspectRatio="none"><path d="M20 320 C70 250 10 190 75 125 C120 80 95 35 150 0"/></svg>
+          <span class="leaf l1">🌿</span><span class="leaf l2">🍃</span><span class="leaf l3">🌿</span><span class="leaf l4">🍃</span><span class="leaf l5">🌿</span>
+          <span class="float f1">✨</span><span class="float f2">✦</span><span class="float f3">✨</span>
+        </div>
+        <div class="scene scene-chat">
+          <div class="glow g1"></div>
+          <div class="bubble b1"><i></i><i></i></div>
+          <div class="bubble b2"><i></i><i></i><i></i></div>
+          <div class="bubble b3"><i></i></div>
+          <span class="float f1">⚡</span><span class="float f2">…</span>
+        </div>
+      </div>
+
       <header class="topbar">
         <button class="icon-btn menu-btn" data-action="toggle-sidebar" aria-label="Toggle menu">
           <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
@@ -56,6 +100,18 @@
       </header>
 
       <main id="view" class="view"></main>
+    </div>
+  </div>
+
+  <!-- Opening animation -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro-card">
+      <div class="intro-mark">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M18.5 2 7 17.5h7L13.5 30 25 13.8h-7z" fill="currentColor"/></svg>
+      </div>
+      <div class="intro-name">EnergyIQ</div>
+      <div class="intro-sub">Every watt, under control</div>
+      <div class="intro-track"><i></i></div>
     </div>
   </div>
 
