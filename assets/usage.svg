@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f1eaff"/><stop offset="1" stop-color="#faf7ff"/></linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#c4b5fd" stop-opacity=".2"/></linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="70"/></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1280" cy="160" r="280" fill="#b79bff" opacity=".32" filter="url(#blur)"/>
+  <circle cx="180" cy="820" r="300" fill="#8b5cf6" opacity=".18" filter="url(#blur)"/>
+  <g stroke="#9b7bf0" stroke-width="1.2" opacity=".2">
+    <path d="M0 220h1600M0 380h1600M0 540h1600M0 700h1600M0 860h1600"/>
+  </g>
+  <g fill="url(#bar)" opacity=".55">
+    <rect x="920" y="500" width="48" height="360" rx="14"/><rect x="1000" y="400" width="48" height="460" rx="14"/>
+    <rect x="1080" y="540" width="48" height="320" rx="14"/><rect x="1160" y="300" width="48" height="560" rx="14"/>
+    <rect x="1240" y="440" width="48" height="420" rx="14"/><rect x="1320" y="360" width="48" height="500" rx="14"/>
+    <rect x="1400" y="250" width="48" height="610" rx="14"/>
+  </g>
+  <polyline points="940,470 1020,360 1100,500 1180,250 1260,390 1340,310 1420,200" fill="none" stroke="#6d3fe0" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity=".45"/>
+  <g fill="#6d3fe0" opacity=".5"><circle cx="940" cy="470" r="10"/><circle cx="1180" cy="250" r="10"/><circle cx="1420" cy="200" r="10"/></g>
+  <g opacity=".25" stroke="#8b5cf6" stroke-width="6" fill="none"><path d="M120 620 C260 500 340 700 480 580 S720 460 860 560"/></g>
+</svg>

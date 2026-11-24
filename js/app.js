@@ -881,7 +881,7 @@ renderView();
 renderSettings();
 bindEvents();
 
-setTimeout(() => document.getElementById('intro')?.remove(), 2200);
+setTimeout(() => document.getElementById('intro')?.remove(), 5600);
 
 setInterval(() => {
   tick();

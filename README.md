@@ -32,7 +32,7 @@ Settings (gear icon): electricity tariff (₹/unit), simulation speed, reset dem
 
 ### Motion and ambience
 
-Opening the app plays a short branded intro. Every tab then gets its own animated, CSS-only backdrop that matches the topic — energy pulses on Dashboard, drifting appliances on Appliances, rising bars on Usage, floating report sheets on Reports, orbiting AI nodes on Insights, growing vines and leaves on Green Credits, and floating chat bubbles on Chatbot. Cards animate in when you switch tabs. All motion is disabled automatically when the OS requests reduced motion, and the backdrop is hidden when printing a report.
+Opening the app plays a **5-second** staged branded intro (sensor wake-up → appliance scan → insights → ready). Then the whole page background recolours to the active tab's theme and reveals a matching illustrated backdrop from `assets/*.svg`: energy pulses on Dashboard, appliances on Appliances, rising charts on Usage, report sheets on Reports, AI nodes on Insights, an eco vine with leaves on Green Credits, and chat bubbles on Chatbot. Cards are lightly translucent so the themed art shows through, and animate in when you switch tabs. All motion is disabled automatically when the OS requests reduced motion, and the backdrop is hidden when printing a report.
 
 ## How the data works
 
