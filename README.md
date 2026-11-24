@@ -1,150 +1,59 @@
-# Astra Grid — AI Energy Intelligence & Smart Facility Platform
+# EnergyIQ — Home Energy Monitor
 
-[![GitHub Pages](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-d6fa70?style=for-the-badge&logo=github&logoColor=20251f)](https://bharath102007.github.io/ai-energy-monitoring/)
-[![Technology](https://img.shields.io/badge/Stack-Vanilla%20HTML5%20%7C%20CSS3%20%7C%20ES6%2B-ff693c?style=for-the-badge)](https://developer.mozilla.org/)
-[![License](https://img.shields.io/badge/License-MIT-20251f?style=for-the-badge)](LICENSE)
+**Live demo:** https://bharath102007.github.io/ai-energy-monitoring/
+**Repository:** https://github.com/bharath102007/ai-energy-monitoring
 
-> **Astra Grid** is an AI-powered energy management operating system engineered for commercial campuses and industrial facilities. It continuously aggregates smart meter data, predicts peak pricing surges, analyzes equipment telemetry for mechanical anomalies, and executes autonomous load-shifting schedules to minimize utility costs and carbon emissions.
+A self-contained web prototype for tracking home appliance energy usage and cost in real time.
 
----
+## Run it
 
-## ✦ System Architecture & Design Philosophy
-
-Astra Grid combines clean, editorial aesthetic design (`#20251f` deep ink, `#d6fa70` electric lime, `#ff693c` warning orange, and `#f6f6f1` warm cream) with institutional telemetry tools:
-
-```
-                  ┌──────────────────────────────────────────────┐
-                  │              ASTRA GRID PLATFORM             │
-                  └──────────────────────┬───────────────────────┘
-                                         │
-        ┌────────────────────────────────┼───────────────────────────────┐
-        ▼                                ▼                               ▼
-┌──────────────────┐           ┌──────────────────┐            ┌──────────────────┐
-│   PUBLIC PORTAL  │           │  FACILITY ENGINE │            │ TELEMETRY SENSORS│
-│  (Landing Page)  │           │   (Dashboard)    │            │  (HVAC, PV, UPS) │
-└──────────────────┘           └────────┬─────────┘            └──────────────────┘
-                                        │
-           ┌──────────────┬─────────────┼──────────────┬──────────────┐
-           ▼              ▼             ▼              ▼              ▼
-     [ Overview ]  [ Consumption ] [ Insights ]  [ Equipment ]  [ Reports & Settings ]
-```
-
----
-
-## ▦ Dashboard Tabs & Capabilities
-
-### 1. ⌂ Overview Tab (`#overview`)
-* **Real-time Live Demand**: Live fluctuating power counter (e.g. `42.8 kW`) accompanied by dynamic 12-hour load activity bars.
-* **Cost vs. Budget**: Real-time spending tracker against daily campus budgets (`₹286.40` spent vs. `₹320.00` cap).
-* **Grid Carbon Intensity**: Live tracking of grid emissions factor (`218 gCO₂/kWh`, ↓12% cleaner than baseline).
-* **Three Ways to Save Today**: Priority AI recommendation card with instant review dialog trigger and quick-action shortcuts.
-* **24-Hour Consumption Trend**: SVG visualization comparing actual consumption vs. AI forecast curves.
-
-### 2. ⌁ Consumption & Load Profiling Tab (`#consumption`)
-* **Granular Demand Curves**: High-resolution 24-hour load profile highlighting the **Peak Pricing Tariff Window (2:00 PM – 6:00 PM @ ₹9.80/kWh)**.
-* **Solar Generation Overlay**: Visual representation of solar generation curve (`+34.2 kW` peak) offsetting grid demand.
-* **Interval Filters**: Instant time-slicing across `24 Hours`, `7 Days`, `30 Days`, and `YTD`.
-* **Energy Source Distribution**: Multi-source breakdown across Main Grid (68%), Rooftop Solar PV (24%), and Battery Energy Storage (8%).
-* **Subsystem Breakdown**: Power distribution by Chilled Water / HVAC (44%), Machinery & R&D (26%), Server Infrastructure (16%), and Lighting (14%).
-
-### 3. ✦ AI Insights & Autonomous Actions Tab (`#insights`)
-* **Predictive Peak Avoidance**: Identifies upcoming price spikes and schedules pre-cooling routines (cooling thermal mass before 2:00 PM saves `₹84.20` daily without impacting tenant comfort).
-* **Equipment Anomaly Detection**: Identifies vibration and current draw anomalies in AHU-04 (Floor 3 North), alerting operators before mechanical failure.
-* **Renewable Synergy**: Automatically coordinates campus EV fleet charging during peak solar generation (11:30 AM – 2:30 PM).
-* **Base Load Optimization**: Spots ghost loads (`6.4 kW` continuous overnight draw in Building B) and deploys smart sleep policies.
-* **Interactive Approval Dialog**: In-depth setpoint simulation dialog allowing facilities engineers to review, simulate, and approve autonomous execution.
-
-### 4. ▦ Connected Equipment & Telemetry Tab (`#equipment`)
-* **Asset Health Monitoring**: Tracks 18 campus devices with live operational health tags (`Optimal`, `Anomaly`, `Generating`, `Standby`).
-* **Interactive Search & Categorization**: Real-time filtering by equipment name, ID, or subsystem category (`HVAC`, `Power & Inverters`, `Lighting`).
-* **Telemetry Diagnostics Modal**: Live simulated telemetry stream modal displaying current draw, fan RPM, accelerometer RMS vibration, and AI diagnostic conclusions.
-* **Automated Ticket Dispatch**: One-click maintenance work order generation with interactive toast confirmation.
-
-### 5. ▤ Reports & Compliance Export Center (`#reports`)
-* **Executive Summary Statements**: Audit-ready statements for April 2026 showing net kWh, solar generation, gross billing (`₹1,24,500`), and AI cost reduction (`₹14,250`).
-* **Genuine CSV Export**: Instant client-side download of `AstraGrid_Energy_Report_April_2026.csv` with 30-day historical energy and carbon log.
-* **Print-to-PDF Formatting**: Built-in `@media print` stylesheet that cleanly formats the executive statement while hiding sidebars and UI controls.
-* **ESG & Scope 2 Compliance**: Greenhouse Gas Protocol compliant documentation tracking tons of CO₂ avoided.
-
-### 6. ⚙ Facility Settings & Tariffs Tab (`#settings`)
-* **Facility Configuration**: Customization of campus name, gross floor area (45,000 sq ft), facility classification, and operating hours.
-* **Tariff Structure Customization**: Configurable off-peak rates (`₹6.50/kWh`), peak window rates (`₹9.80/kWh`), and monthly budget ceilings.
-* **Autonomous AI Boundaries**: Toggles for AI pre-cooling authorization, solar fleet dispatch, and maximum allowed thermostat variation (`±1.5°C`).
-* **Persistent Web Storage**: All settings are safely saved to browser `localStorage` and persist across sessions.
-
----
-
-## ⚡ Global Interactive Features
-
-* **Multi-Site Switcher**: Instant switching between `Northstar Campus`, `South Bay Hub`, and `West River Facility` with dynamic metric baseline adjustments.
-* **Notification Popover**: Notification bell with unread counter (`3`), severity badges, and a "Mark Read" feature.
-* **Hash-Based Router**: Seamless URL navigation (`dashboard.html#overview`, `#consumption`, `#insights`, `#equipment`, `#reports`, `#settings`) supporting full browser back/forward history.
-* **Toast Notification Engine**: Non-intrusive feedback toast notifications for all user actions (applying recommendations, saving settings, creating tickets, exporting data).
-* **Responsive Architecture**: Fully optimized for ultra-wide displays, laptops, tablets (collapsible sidebar), and mobile smartphones.
-
----
-
-## 📂 Project Structure
-
-```
-ai-energy-monitoring/
-├── index.html        # Public marketing landing page & product vision
-├── style.css         # Global design tokens, typography, and landing styles
-├── script.js         # Landing page interactive solar simulation
-├── dashboard.html    # Full multi-tab enterprise dashboard application
-├── dashboard.css     # Dashboard styling, layout grid, print styles, and components
-├── dashboard.js      # Dashboard state engine, tab router, telemetry, and CSV export
-└── README.md         # Technical documentation and project guide
-```
-
----
-
-## 🚀 Getting Started
-
-### 1. View Live Online
-Open the live GitHub Pages deployment in your web browser:
-👉 **[https://bharath102007.github.io/ai-energy-monitoring/dashboard.html](https://bharath102007.github.io/ai-energy-monitoring/dashboard.html)**
-
-Direct tab links:
-* [Overview](https://bharath102007.github.io/ai-energy-monitoring/dashboard.html#overview)
-* [Consumption Analytics](https://bharath102007.github.io/ai-energy-monitoring/dashboard.html#consumption)
-* [AI Insights](https://bharath102007.github.io/ai-energy-monitoring/dashboard.html#insights)
-* [Connected Equipment](https://bharath102007.github.io/ai-energy-monitoring/dashboard.html#equipment)
-* [Reports & Exports](https://bharath102007.github.io/ai-energy-monitoring/dashboard.html#reports)
-* [Settings](https://bharath102007.github.io/ai-energy-monitoring/dashboard.html#settings)
-
-### 2. Run Locally
-
-No build tools, bundlers, or `npm install` required! Simply clone and open:
+ES modules need an HTTP server (opening `index.html` directly with `file://` will not work):
 
 ```bash
-# Clone the repository
-git clone https://github.com/bharath102007/ai-energy-monitoring.git
-
-# Navigate into directory
-cd ai-energy-monitoring
-
-# Open in browser (Windows)
-start dashboard.html
-
-# Or run with any lightweight local server (Python)
-python -m http.server 8000
+cd "Documents/Default Project"
+python3 -m http.server 4173
 ```
-Then visit `http://localhost:8000/dashboard.html` in your browser.
 
----
+Then open **http://localhost:4173** in your browser. No npm install or build step is needed.
 
-## 🛠 Tech Stack
+## What is included
 
-* **Markup**: Semantic HTML5 (`<aside>`, `<main>`, `<dialog>`, `<section>`, `<article>`)
-* **Styling**: Vanilla CSS3 (CSS Grid, Flexbox, Custom Properties, `@media print`, Keyframes)
-* **Fonts**: `Manrope` (Typography & UI), `DM Mono` (Telemetry & Data), `Georgia` (Editorial accents)
-* **Scripting**: Pure JavaScript (ES6+, Web Storage API, SVG manipulation, Blob CSV generation)
-* **Dependencies**: Zero external JS libraries or frameworks. Fast, lightweight, and offline-capable.
+| Tab | What it does |
+|---|---|
+| **Live Dashboard** | Live power draw (W), energy used today, cost so far, 7-day average, appliance ON/OFF switches and a daily bar chart |
+| **Appliances** | Every device is tagged "Added by you". Pick a day (last 30) to see each appliance's run hours, kWh and cost alongside its watts; add / edit / delete / toggle |
+| **Usage** | Daily / weekly / monthly stored reports with totals, cost, top appliance and trend charts |
+| **Reports** | Pick any of the last 12 months → full daily table, anomaly status, and download as daily CSV, appliance-wise CSV, JSON, or print to PDF |
+| **AI Insights** | Efficiency score, appliance share donut, personalised suggestions and an Anomaly Alerts table for unusually high days |
+| **Green Credits** | ₹1 saved against your 30-day average = 1 credit. Balance, tier (Bronze → Platinum), saving streak and recent credits |
+| **Chatbot** | Ask about top consumer, today's cost, unusual spikes, credit balance, weekly/monthly usage, savings tips and sensor connectivity |
 
----
+Settings (gear icon): electricity tariff (₹/unit), simulation speed, reset demo data and clear chat.
 
-## 📄 License
+## How the data works
 
-This project is licensed under the [MIT License](LICENSE).
-Built with ✦ by **Bharath** for sustainable, data-driven energy clarity.
+- `js/store.js` owns all appliance and usage state. It seeds 30 days of sample readings, then a 1-second tick adds consumption for devices that are ON.
+- Readings are stored as **watt-minutes per appliance per day** (`state.usage['YYYY-MM-DD'][applianceId]`). Energy in kWh = watt-minutes ÷ 60,000. Cost = kWh × tariff.
+- Everything persists in `localStorage` under `energyiq.state.v1` and keeps 90 days of history.
+- Run hours for a day = watt-minutes ÷ appliance watts ÷ 60. Anomaly alerts flag days above 18% of the 30-day average (and outside the normal variation band). Multiple tabs are de-duplicated with a per-tick guard and a `storage` sync listener.
+
+### Connecting real Wi-Fi sensors later
+
+Only the write path changes. Replace the body of `tick()` in `js/store.js` with your sensor payload handler, writing watt-minutes into the same bucket:
+
+```js
+state.usage[dateKey][applianceId] += watts * elapsedMinutes;
+save();
+```
+
+All screens, reports, insights and chatbot answers read from that store, so no UI code needs to change.
+
+## Files
+
+- `index.html` — shell / tab layout
+- `styles.css` — styling and responsive layout
+- `js/applianceArt.js` — appliance catalog and inline SVG pictures
+- `js/store.js` — state, simulation and aggregations
+- `js/charts.js` — dependency-free SVG charts
+- `js/insights.js` — insight rules and chatbot reply engine
+- `js/app.js` — screens and event handling
